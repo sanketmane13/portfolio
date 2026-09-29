@@ -152,17 +152,33 @@ export default function Home() {
               </p>
             </div>
             <div className="space-y-4">
+              
               <div className="rounded-lg border border-line bg-surface p-5">
                 <p className="mb-1 font-mono text-xs text-teal">Experience</p>
-                <p className="font-display text-lg font-semibold">
-                  Full-Stack GenAI Developer
-                </p>
-                <p className="text-sm text-muted">
-                  <a href="https://repliq.in/" target="_blank" rel="noreferrer noopener" className="text-teal hover:text-amber">
-                    RepliQ Automations
-                  </a>{" "}
-                  · Sep 2025 – Feb 2026
-                </p>
+                <div className="mb-4">
+                    <p className="font-display text-lg font-semibold">
+                      Software Engineer Intern
+                    </p>
+                    <p className="text-sm text-muted">
+                      <a href="https://www.thinkitive.com/" target="_blank" rel="noreferrer noopener" className="text-teal hover:text-amber">
+                        Thikitive Technologies Pvt. Ltd.
+                      </a>{" "}
+                      · Sep 2026 – Present
+                    </p>
+                </div>
+
+                <div>
+                    <p className="font-display text-lg font-semibold">
+                      Full-Stack GenAI Developer
+                    </p>
+                    <p className="text-sm text-muted">
+                      <a href="https://repliq.in/" target="_blank" rel="noreferrer noopener" className="text-teal hover:text-amber">
+                        RepliQ Automations
+                      </a>{" "}
+                      · Sep 2025 – Feb 2026
+                    </p>
+                </div>
+                
               </div>
               <div className="rounded-lg border border-line bg-surface p-5">
                 <p className="mb-1 font-mono text-xs text-teal">Education</p>
