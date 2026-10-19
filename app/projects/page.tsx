@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
-      <SectionLabel> projects/</SectionLabel>
+    <div className="mx-auto max-w-6xl bg-black px-5 py-16 sm:px-8">
+      <SectionLabel> PROJECTS</SectionLabel>
 
       <p className="mb-10 max-w-2xl text-muted">
         Three systems, all built to run not just demo. Each card traces

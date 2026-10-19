@@ -67,14 +67,14 @@ export default function PipelineDiagram({
                 y1={y}
                 x2={x2}
                 y2={y}
-                stroke="#242C34"
+                stroke="rgb(var(--line))"
                 strokeWidth={1.5}
                 strokeDasharray="4 5"
               />
 
               <motion.circle
                 r={2.6}
-                fill="#3FA9A0"
+                fill="rgb(var(--amber))"
                 initial={{
                   cx: x1,
                   opacity: 0,
@@ -112,11 +112,11 @@ export default function PipelineDiagram({
                 width={textWidth}
                 height={28}
                 rx={5}
-                fill="#12171C"
+                fill="rgb(var(--surface))"
                 stroke={
                   i === nodes.length - 1
-                    ? "#E8A33D"
-                    : "#242C34"
+                    ? "rgb(var(--amber))"
+                    : "rgb(var(--line))"
                 }
                 strokeWidth={1.2}
               />
@@ -124,12 +124,12 @@ export default function PipelineDiagram({
               <text
                 textAnchor="middle"
                 dy="4"
-                className="font-mono"
+                fontFamily="var(--font-body), sans-serif"
                 fontSize="10.5"
                 fill={
                   i === nodes.length - 1
-                    ? "#E8A33D"
-                    : "#C6D0D9"
+                    ? "rgb(var(--amber))"
+                    : "rgb(var(--text))"
                 }
               >
                 {label}

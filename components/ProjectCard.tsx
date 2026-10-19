@@ -5,70 +5,61 @@ import Link from "next/link";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group min-w-0 overflow-hidden rounded-lg border border-line bg-surface p-4 transition-colors hover:border-amber/50 sm:p-6 md:p-7">
-      {/* Header */}
-      <div className="mb-4 flex min-w-0 items-start gap-3">
-        {/* Project information */}
-        <div className="min-w-0 flex-1">
-          <div className="mb-1.5 flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
-            <h3 className="min-w-0 break-words font-display text-base font-semibold leading-tight text-text sm:text-lg md:text-xl">
-              {project.name}
-            </h3>
-
-            <span
-              className={`shrink-0 whitespace-nowrap rounded-full border px-2 py-0.5 font-mono text-[9px] uppercase tracking-wide sm:text-[10px] ${
-                project.status === "shipped"
-                  ? "border-teal/40 text-teal"
-                  : "border-amber/40 text-amber"
-              }`}
-            >
-              {project.status === "shipped" ? "shipped" : "in progress"}
-            </span>
+    <article className="group min-w-0 overflow-hidden rounded-xl border border-line bg-surface transition-colors">
+      <div className="relative aspect-video overflow-hidden bg-[#0d1115]">
+        <div className="absolute inset-x-0 top-0 z-10 flex h-8 items-center justify-between border-b border-white/10 bg-[#11171d] px-3">
+          <div className="flex items-center gap-1.5" aria-hidden="true">
+            <span className="h-2 w-2 rounded-full bg-[#ef6a5b]" />
+            <span className="h-2 w-2 rounded-full bg-[#e9bd4f]" />
+            <span className="h-2 w-2 rounded-full bg-[#62c554]" />
           </div>
-
-          <p className="break-words text-xs leading-relaxed text-muted sm:text-sm">
-            {project.tagline}
-          </p>
+          <span className="font-mono text-[10px] uppercase tracking-wider text-neutral-400">
+            Workflow preview
+          </span>
+          <Link
+            href={`/projects/${project.slug}`}
+            aria-label={`View ${project.name} details`}
+            className="flex items-center justify-center text-neutral-400 transition-colors hover:text-white"
+          >
+            <ArrowUpRight size={18} />
+          </Link>
         </div>
 
-        {/* Project link */}
+        <div className="flex h-full items-center px-3 pt-8 sm:px-4">
+          <div className="w-full min-w-0 overflow-x-auto">
+            <PipelineDiagram nodes={project.pipeline} compact />
+          </div>
+        </div>
+      </div>
+
+      <div className="p-5 sm:p-6">
+        <h3 className="mb-2 break-words  text-xl font-semibold leading-tight text-text sm:text-2xl">
+          {project.name}
+        </h3>
+
+        <p className="mb-5 line-clamp-2 text-sm leading-relaxed text-muted sm:text-base">
+          {project.tagline}
+        </p>
+
+        <div className="flex flex-wrap gap-1.5">
+          {project.stack.map((s) => (
+            <span
+              key={s}
+              className="max-w-full break-words rounded-md border border-line bg-ink px-2.5 py-1 font-mono text-[11px] font-semibold text-muted sm:text-xs"
+            >
+              {s}
+            </span>
+          ))}
+        </div>
+
         <Link
           href={`/projects/${project.slug}`}
-          aria-label={`View ${project.name} details`}
-          className="mt-0.5 flex shrink-0 items-center justify-center rounded-full border border-line p-1.5 text-muted transition-colors group-hover:border-amber group-hover:text-amber sm:p-2"
+          className="mt-5 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-neutral-200"
         >
-          <ArrowUpRight size={15} className="sm:h-4 sm:w-4" />
+          View project
+          <ArrowUpRight size={16} />
         </Link>
       </div>
-
-      {/* Pipeline */}
-      <div className="mb-5 w-full min-w-0 overflow-hidden rounded-md border border-line/70 bg-ink/60 px-2 py-3 sm:px-3">
-        <div className="w-full min-w-0 overflow-x-auto">
-          <PipelineDiagram nodes={project.pipeline} compact />
-        </div>
-      </div>
-
-      {/* Points */}
-      <ul className="mb-5 space-y-2 text-xs leading-relaxed text-text/90 sm:text-sm">
-        {project.points.slice(0, 2).map((p, i) => (
-          <li key={i} className="flex min-w-0 gap-2">
-            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-teal" />
-            <span className="min-w-0 break-words">{p}</span>
-          </li>
-        ))}
-      </ul>
-
-      {/* Tech stack */}
-      <div className="flex flex-wrap gap-1.5">
-        {project.stack.map((s) => (
-          <span
-            key={s}
-            className="max-w-full break-words rounded border border-line bg-ink px-2 py-1 font-mono text-[10px] text-muted sm:text-[11px]"
-          >
-            {s}
-          </span>
-        ))}
-      </div>
-    </div>
+    </article>
   );
 }

@@ -5,13 +5,13 @@ import ContactForm from "@/components/ContactForm";
 import { contact } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Contact — Sanket Mane",
+  title: "Contact - Sanket Mane",
   description: "Get in touch with Sanket Mane about full-stack or generative AI engineering roles and projects.",
 };
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-4xl px-5 py-16 sm:px-8">
+    <div className="mx-auto max-w-4xl bg-black px-5 py-16 sm:px-8">
     
       <h1 className="mb-3 font-display text-3xl font-semibold sm:text-4xl">
         Let's talk

@@ -16,7 +16,7 @@ export default function NotFound() {
         href="/"
         className="rounded-md bg-amber px-5 py-2.5 font-mono text-sm font-medium text-ink"
       >
-        cd ~
+        Back
       </Link>
     </div>
   );

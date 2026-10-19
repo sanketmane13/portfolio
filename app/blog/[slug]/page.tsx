@@ -24,12 +24,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     <article className="mx-auto max-w-2xl px-5 py-16 sm:px-8">
       <Link
         href="/blog"
-        className="mb-8 inline-flex items-center gap-1.5 font-mono text-sm text-muted hover:text-teal"
+        className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted hover:text-text"
       >
         <ArrowLeft size={14} /> back to writing
       </Link>
 
-      <div className="mb-3 flex items-center gap-3 font-mono text-xs text-muted">
+      <div className="mb-3 flex items-center gap-3 text-xs text-muted">
         <time>{formatDate(post.date)}</time>
         <span className="text-line">·</span>
         <span>{post.readTime} read</span>
@@ -41,7 +41,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         {post.tags.map((t) => (
           <span
             key={t}
-            className="rounded border border-line bg-surface px-2 py-0.5 font-mono text-[11px] text-teal"
+            className="rounded border border-line bg-surface px-2 py-0.5 text-[11px] text-muted"
           >
             {t}
           </span>
@@ -57,7 +57,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       <div className="mt-14 border-t border-line pt-8">
         <Link
           href="/blog"
-          className="font-mono text-sm text-teal hover:text-amber"
+          className="text-sm text-muted hover:text-text"
         >
           ← all posts
         </Link>

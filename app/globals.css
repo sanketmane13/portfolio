@@ -2,13 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+  --ink: 10 13 16;
+  --surface: 18 23 28;
+  --surface2: 24 31 38;
+  --line: 36 44 52;
+  --text: 231 237 242;
+  --muted: 139 152 164;
+  --amber: 232 163 61;
+  --teal: 63 169 160;
+  --neutral-300: 212 212 212;
+  --neutral-400: 163 163 163;
+  --neutral-500: 115 115 115;
+  --neutral-700: 64 64 64;
+  --neutral-800: 38 38 38;
+  --neutral-900: 23 23 23;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --ink: 255 255 255;
+  --surface: 246 248 250;
+  --surface2: 235 239 243;
+  --line: 215 221 226;
+  --text: 20 27 33;
+  --muted: 94 107 118;
+  --amber: 153 87 0;
+  --teal: 19 111 104;
+  --neutral-300: 55 65 81;
+  --neutral-400: 75 85 99;
+  --neutral-500: 89 99 110;
+  --neutral-700: 215 221 226;
+  --neutral-800: 232 237 241;
+  --neutral-900: 246 248 250;
+}
+
 * {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #0A0D10;
-  color: #E7EDF2;
+  background-color: rgb(var(--ink));
+  color: rgb(var(--text));
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+body, body * {
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
 }
 
 ::selection {
@@ -36,8 +79,96 @@ textarea:focus-visible {
 }
 
 .bg-dot-grid {
-  background-image: radial-gradient(#ffffff14 1px, transparent 1px);
+  background-image: radial-gradient(rgb(var(--text) / 0.08) 1px, transparent 1px);
   background-size: 22px 22px;
+}
+
+:root[data-theme="light"] .bg-black {
+  background-color: rgb(var(--ink));
+}
+
+:root[data-theme="light"] header {
+  background-color: rgb(var(--ink) / 0.95);
+}
+
+:root[data-theme="light"] .theme-toggle:hover {
+  background-color: rgb(var(--surface2));
+}
+
+:root[data-theme="light"] .text-white {
+  color: rgb(var(--text));
+}
+
+:root[data-theme="light"] .text-text {
+  color: rgb(var(--text));
+}
+
+:root[data-theme="light"] .text-text\/90 {
+  color: rgb(var(--text) / 0.9);
+}
+
+:root[data-theme="light"] .text-muted {
+  color: rgb(var(--muted));
+}
+
+:root[data-theme="light"] .text-neutral-200 {
+  color: rgb(var(--text));
+}
+
+:root[data-theme="light"] .text-neutral-300 {
+  color: rgb(var(--neutral-300));
+}
+
+:root[data-theme="light"] .text-neutral-400 {
+  color: rgb(var(--neutral-400));
+}
+
+:root[data-theme="light"] .text-neutral-500 {
+  color: rgb(var(--neutral-500));
+}
+
+:root[data-theme="light"] .text-amber {
+  color: rgb(var(--amber));
+}
+
+:root[data-theme="light"] .text-teal {
+  color: rgb(var(--teal));
+}
+
+:root[data-theme="light"] .bg-surface {
+  background-color: rgb(var(--surface));
+}
+
+:root[data-theme="light"] .bg-surface2 {
+  background-color: rgb(var(--surface2));
+}
+
+:root[data-theme="light"] .bg-ink {
+  background-color: rgb(var(--ink));
+}
+
+:root[data-theme="light"] .bg-ink\/60 {
+  background-color: rgb(var(--ink) / 0.6);
+}
+
+:root[data-theme="light"] .border-line {
+  border-color: rgb(var(--line));
+}
+
+:root[data-theme="light"] .border-line\/60 {
+  border-color: rgb(var(--line) / 0.6);
+}
+
+:root[data-theme="light"] .border-line\/70 {
+  border-color: rgb(var(--line) / 0.7);
+}
+
+:root[data-theme="light"] .border-line\/80 {
+  border-color: rgb(var(--line) / 0.8);
+}
+
+:root[data-theme="light"] .tech-stack-logo {
+  color: #fff;
 }
 
 .text-glow {

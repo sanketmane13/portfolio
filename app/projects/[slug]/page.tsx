@@ -1,5 +1,4 @@
 import PipelineDiagram from "@/components/PipelineDiagram";
-import SectionLabel from "@/components/SectionLabel";
 import { projects } from "@/lib/data";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -13,7 +12,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
   if (!project) return {};
   return {
-    title: `${project.name} — Sanket Mane`,
+    title: `${project.name} - Sanket Mane`,
     description: project.tagline,
   };
 }
@@ -26,16 +25,16 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
     <div className="mx-auto max-w-4xl px-5 py-16 sm:px-8">
       <Link
         href="/projects"
-        className="mb-8 inline-flex items-center gap-1.5 font-mono text-sm text-muted hover:text-teal"
+        className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted hover:text-text"
       >
         <ArrowLeft size={14} /> back to projects
       </Link>
 
       <div className="mb-2 flex flex-wrap items-center gap-3">
         <span
-          className={`rounded-full border px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wide ${
+          className={`rounded-full border px-2.5 py-0.5 text-[10px] uppercase tracking-wide ${
             project.status === "shipped"
-              ? "border-teal/40 text-teal"
+              ? "border-line text-muted"
               : "border-amber/40 text-amber"
           }`}
         >
@@ -47,16 +46,20 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
       </h1>
       <p className="mb-10 max-w-2xl text-lg text-muted">{project.tagline}</p>
 
-      <SectionLabel>Project Pipeline - {project.slug}</SectionLabel>
+      <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-muted">
+        Project pipeline
+      </h2>
       <div className="mb-10 overflow-hidden rounded-lg border border-line bg-surface px-3 py-7">
         <PipelineDiagram nodes={project.pipeline} />
       </div>
 
-      <SectionLabel>About project</SectionLabel>
+      <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-muted">
+        About project
+      </h2>
       <ul className="mb-10 space-y-4">
         {project.points.map((point, i) => (
           <li key={i} className="flex gap-3 text-text/90">
-            <span className="mt-1 shrink-0 font-mono text-xs text-teal">
+            <span className="mt-1 shrink-0 text-xs text-muted">
               {String(i + 1).padStart(2, "0")}
             </span>
             <span className="leading-relaxed">{point}</span>
@@ -64,12 +67,14 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
         ))}
       </ul>
 
-      <SectionLabel>Tech stack</SectionLabel>
+      <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-muted">
+        Tech stack
+      </h2>
       <div className="flex flex-wrap gap-2">
         {project.stack.map((s) => (
           <span
             key={s}
-            className="rounded border border-line bg-surface px-3 py-1.5 font-mono text-xs text-muted"
+            className="rounded border border-line bg-surface px-3 py-1.5 text-xs text-muted"
           >
             {s}
           </span>

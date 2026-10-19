@@ -8,14 +8,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0A0D10",
-        surface: "#12171C",
-        surface2: "#181F26",
-        line: "#242C34",
-        text: "#E7EDF2",
-        muted: "#8B98A4",
-        amber: "#E8A33D",
-        teal: "#3FA9A0",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        surface2: "rgb(var(--surface2) / <alpha-value>)",
+        line: "rgb(var(--line) / <alpha-value>)",
+        text: "rgb(var(--text) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        amber: "rgb(var(--amber) / <alpha-value>)",
+        teal: "rgb(var(--teal) / <alpha-value>)",
+        neutral: {
+          300: "rgb(var(--neutral-300) / <alpha-value>)",
+          400: "rgb(var(--neutral-400) / <alpha-value>)",
+          500: "rgb(var(--neutral-500) / <alpha-value>)",
+          700: "rgb(var(--neutral-700) / <alpha-value>)",
+          800: "rgb(var(--neutral-800) / <alpha-value>)",
+          900: "rgb(var(--neutral-900) / <alpha-value>)",
+        },
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],

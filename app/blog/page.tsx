@@ -5,14 +5,14 @@ import SectionLabel from "@/components/SectionLabel";
 import { posts } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Blog — Sanket Mane",
+  title: "Blog - Sanket Mane",
   description: "Notes on RAG, MCP, and building AI systems in production.",
 };
 
 export default function BlogPage() {
   return (
-    <div className="mx-auto max-w-3xl px-5 py-16 sm:px-8">
-      <SectionLabel>blogs/</SectionLabel>
+    <div className="mx-auto max-w-3xl bg-black px-5 py-16 sm:px-8">
+      <SectionLabel>BLOGS</SectionLabel>
       <p className="mb-12 max-w-2xl text-muted">
         Short, practical notes from actually building chunking, tool
         calling, and the parts of shipping AI systems that don't make it
@@ -46,7 +46,7 @@ export default function BlogPage() {
                 {post.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded border border-line bg-surface px-2 py-0.5 font-mono text-[11px] text-teal"
+                    className="rounded border border-line bg-surface px-2 py-0.5 font-mono text-[11px] "
                   >
                     {t}
                   </span>
